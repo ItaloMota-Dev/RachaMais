@@ -100,6 +100,6 @@ def delete_expense(
     if not expense:
         raise HTTPException(status_code=404, detail="Expense not found")
     if expense.paid_by_id != current_user.id:
-        raise HTTPException(status_code=403, detail="Not authorised to delete this expense")
+        raise HTTPException(status_code=403, detail="Not authorized to delete this expense")
     session.delete(expense)
     session.commit()

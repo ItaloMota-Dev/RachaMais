@@ -39,8 +39,8 @@ class TestNormalizeCurrencyText:
             "  10.00  ",
         ]
         for raw in raw_values:
-            normalised = normalize_currency_text(raw)
-            assert float(normalised) > 0, f"Could not convert '{raw}' → '{normalised}'"
+            normalized = normalize_currency_text(raw)
+            assert float(normalized) > 0, f"Could not convert '{raw}' → '{normalized}'"
 
 
 # ── simplify_debts ────────────────────────────────────────────────────────────

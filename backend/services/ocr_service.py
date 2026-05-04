@@ -51,8 +51,8 @@ def _extract_amount(text: str) -> tuple[float | None, float]:
         if match:
             raw = match.group(1)
             try:
-                normalised = normalize_currency_text(raw)
-                amount = float(normalised)
+                normalized = normalize_currency_text(raw)
+                amount = float(normalized)
                 # Confidence decreases with pattern specificity
                 confidence = round(0.95 - idx * 0.10, 2)
                 return amount, confidence

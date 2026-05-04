@@ -33,8 +33,15 @@ export default function Login() {
         localStorage.setItem('token', access_token);
       }
       navigate('/');
-    } catch {
-      setError('E-mail ou senha inválidos.');
+    } catch (err) {
+      const status = err?.response?.status;
+      if (tab === 'register' && status === 400) {
+        setError('Este e-mail já está cadastrado.');
+      } else if (status === 401) {
+        setError('E-mail ou senha inválidos.');
+      } else {
+        setError('Ocorreu um erro. Tente novamente.');
+      }
     } finally {
       setLoading(false);
     }
